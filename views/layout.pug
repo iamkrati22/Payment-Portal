@@ -1,0 +1,29 @@
+block variables 
+doctype html 
+html 
+    head 
+        script (src = "/public/client.js")
+        //link(rel="stylesheet", href="/style.css")app.use(express.static(path.join(__dirname, "public")));
+        meta(charset = "utf-8")
+        title Registration Portal 
+        //script(src='/public/client.js')
+
+    body 
+        header#header 
+            .header-content 
+                h2#OTP OTP Registration Portal
+        main#main 
+            ul 
+                tr  UserId 
+                tr  otp
+                each data in userData 
+                    li 
+                        p #{data.userId} #{data.otp} 
+            .request  
+                button#btn createOTP
+        footer#footer 
+            p &copy; Copyright OTP, 2022.
+        script 
+           
+            include client2.js 
+        //script(src='/public/client.js')
