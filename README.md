@@ -11,6 +11,24 @@ For the solution of this problem, we went back to the board and designed somethi
 
 For detail working of Synchronous Dynamic Password Tokens, click [here](https://www.techopedia.com/definition/23940/time-synchronous-authentication)
 
+## Tech Stack 
+### 1. Application (Client side)
+* Flutter
+* Dart
+* FireBase (Backend)
+### 2. Web (Server side) 
+* Express
+* Node
+* HTML, CSS, Pug, BootStrap
+### 3. File Storage 
+* MongoDB, Mongo Atlas
+### 4. Version Control 
+* Git
+* GitHub
+### 5. Cloud Deployment 
+* Amazon Web Services
+---
+## Working
 Our Prototype is an application that can present the user with an OTP anywhere, regardless of the quality of the mobile signals on their phone (apart from the first signup and login stage). Whenever a user signs up into the application, an OTP is created for them by the Backend service which stores this OTP in a database. All the OTPs in the database are then updated in regular time intervals, so as to mitigate any sort of Security Issues. Whenever the user performs a login request in the application, this OTP is then shared with the client application, where the OTP is stored locally on their Smartphones. Once this step is performed, the user doesn't need any sort of mobile signals. The OTP stored in the client application is then updated on regular intervals, which is run in time sync with the server. But signing up and logging in creates a request-response cycle to a server, which introduces network delays into the system causing it to run out of sync in respect to the server.
 
 ### How to sync the times of the devices?
@@ -19,4 +37,4 @@ Our Prototype is an application that can present the user with an OTP anywhere, 
 
 We designed a state-of-the-art system for correcting these network delays, by using internet times and system times alike. The Network Time Protocol provides us with the the internet times for the device and the server(though these too are not the correct times because they have a network delay while being fetched from the internet. So we correct this too). Now while exchanging the request, the client also shares it's corrected Internet time with the server so that we get our delays for the request and response respectively. We then subtract the response timing from the total time taken in the cycle to get the client and server in sync with each other. When the User is performing a Login, we can reduce any network delays during the setup stage to the order of milliseconds. This keeps the Server and Application in sync even when the Application is not connected to the backend. This creates a secure way for OTPs to be provided to users without any mobile signals.
 
-The Application can be found [here](https://github.com/NaK915/OTP_Application)
+### The Connected Application (Client Side) which is to be used for the OTPs can be found [here](https://github.com/NaK915/OTP_Application)
